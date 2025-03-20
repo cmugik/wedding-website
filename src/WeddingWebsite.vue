@@ -169,13 +169,29 @@ function submitForm() {
 
       </div>
 
-      <!-- RSVP Page (placeholder) -->
+      <!-- RSVP Page -->
 
       <div v-else-if="currentPage === 'rsvp'" class="page rsvp-page">
-        <h1>Please let us know if you can attend our special day.</h1>
+        <div class="rsvp-deadline-header">
+          <h1>
+            Please let us know if you can attend our special day before August!
+          </h1>
+        </div>
         <div class="rsvp-form-image-section">
           <div class="rsvp-form">
             <form v-if="!formSubmitted" id="rsvpForm" @submit.prevent="submitForm">
+              <div class="rsvp-options">
+                <label class="rsvp-option rsvp-option-yes">
+                  <input type="radio" name="rsvp" value="yes">
+                  <span class="custom-radio"></span>
+                  <span class="rsvp-option-text">Yes, I can attend</span>
+                </label>
+                <label class="rsvp-option rsvp-option-no">
+                  <input type="radio" name="rsvp" value="no">
+                  <span class="custom-radio"></span>
+                  <span class="rsvp-option-text">No, I cannot attend</span>
+                </label>
+              </div>
               <div class="form-group">
                 <input type="text" id="name" v-model="formData.name" placeholder="Your name"
                   :class="{ 'highlight-error': errors.name }" @input="validateForm">
@@ -194,18 +210,20 @@ function submitForm() {
               </div>
               <div class="form-group">
                 <textarea id="notes" v-model="formData.notes"
-                  placeholder="Any special requests, accomodations or information we should know?"></textarea>
+                  placeholder="Any accomodation requests or information we should know?"></textarea>
               </div>
-              <div class="rsvp-button">
+              <div class="form-group-rsvp-button">
                 <button type="submit" id="submitBtn" :disabled="!isFormValid">Send RSVP</button>
               </div>
             </form>
             <div v-if="formSubmitted" class="resolution-message">
               Thank you for your RSVP! We've received your information.
             </div>
+            <div class="rsvp-spacing-bar">
+            </div>
           </div>
           <div class="rsvp-image">
-            <img src="./assets/vertical-champagne.jpg">
+            <img src="./assets/vertical-champagne-cropped.jpg">
           </div>
         </div>
       </div>
@@ -344,7 +362,7 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--second-color);
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -485,17 +503,27 @@ body {
 
 /* RSVP Page specific style */
 
+.rsvp-deadline-header {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
 .rsvp-form-image-section {
   display: flex;
   gap: var(--spacing-md);
-  margin-top: var(--spacing-md);
   margin-bottom: 0px;
+  align-items: center;
+}
+
+.rsvp-form {
+  flex: 1;
+  border-radius: 8px;
 }
 
 .form-group input[type="text"],
 .form-group textarea {
   width: 100%;
-  box-sizing: border-box;
   padding: 10px;
   margin-bottom: 1px;
 }
@@ -509,7 +537,28 @@ body {
   font-size: 30px;
 }
 
-.rsvp-button button {
+/* Setting rsvp form border and background for inputs & button */
+.form-group input[type="text"],
+.form-group textarea,
+.contact-info input,
+.form-group-rsvp-button button {
+  background: rgba(0, 0, 0, 0.025);
+  border-width: 1px;
+  border-color: var(--primary-color);
+  margin-top: 1px;
+  margin-bottom: 1px;
+  outline: none;
+  color: var(--primary-color);
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.contact-info input:focus,
+.form-group-rsvp-button button:focus {
+  box-shadow: 0 0 7px rgba(75, 150, 225, 0.5);
+}
+
+.form-group-rsvp-button button {
   width: 100%;
 }
 
@@ -524,9 +573,48 @@ body {
   padding: 10px;
 }
 
-.rsvp-form {
-  flex: 1;
-  border-radius: 8px;
+.rsvp-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+
+.rsvp-option {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.rsvp-option:hover {
+  background-color: rgba(100, 100, 100, 0.1);
+}
+
+.rsvp-option input[type="radio"] {
+  display: none;
+}
+
+.custom-radio {
+  display: inline-flex;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.rsvp-option-yes input[type="radio"]:checked+.custom-radio:after {
+  content: '✓';
+}
+
+.rsvp-option-no input[type="radio"]:checked+.custom-radio:after {
+  content: '✗';
 }
 
 .rsvp-image {
@@ -549,10 +637,16 @@ body {
   border-radius: 8px;
 }
 
+.rsvp-spacing-bar {
+  height: 90px;
+}
+
+
 /* Responsive design */
 @media (max-width: 768px) {
   .rsvp-form-image-section {
     flex-direction: column;
+
   }
 
   .rsvp-image {
