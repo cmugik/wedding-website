@@ -110,7 +110,7 @@ function submitForm() {
         <section class="content-section">
           <div class="section-container">
             <div class="photo-container">
-              <img src="/src/assets/finley-vertical1.jpg" alt="Couple photo" class="section-photo">
+              <img src="/src/assets/vertical-handholds-finley.jpg" alt="Couple photo" class="section-photo">
             </div>
             <div class="text-container">
               <h2>Our Story</h2>
@@ -160,7 +160,7 @@ function submitForm() {
               <p>Thank you for celebrating with us on top of a mountain, in a way that feels so perfectly us.</p>
             </div>
             <div class="photo-container">
-              <img src="/src/assets/finley-vertical-lake.jpg" alt="Venue photo" class="section-photo">
+              <img src="/src/assets/vertical-kalm-rock.jpg" alt="Venue photo" class="section-photo">
             </div>
           </div>
         </section>
