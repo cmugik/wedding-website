@@ -33,8 +33,8 @@ const changePage = (page) => {
   window.scrollTo(0, 0);
 };
 
-const handleRsvpJump = () => {
-  changePage('rsvp');
+const handleDayJump = () => {
+  changePage('the-day');
 };
 
 const isValidEmail = computed(() => {
@@ -165,7 +165,7 @@ function submitForm() {
           </div>
         </section>
 
-        <button class="jump-to-rsvp-button" @click="handleRsvpJump">I'm Ready to RSVP</button>
+        <button class="jump-to-day-button" @click="handleDayJump">Tell Me About The Day</button>
 
       </div>
 
@@ -229,18 +229,162 @@ function submitForm() {
       </div>
 
 
-      <!-- The Day Page (placeholder) -->
+      <!-- The Day Page -->
       <div v-else-if="currentPage === 'the-day'" class="page the-day-page">
-        <h1>The Day</h1>
-        <p>Schedule and details for our wedding day.</p>
-        <!-- Schedule/details -->
+
+
+        <div class="the-day-content">
+          <div class="the-day-text">
+            <div class="location-text">
+              <h2>Location</h2>
+
+              <p>
+                Our wedding will be held at
+                <a href="https://jurasunflowersummit.ca/">Jura Sunflower Summit</a>,
+                a stunning 200-acre mountaintop venue surrounded by untouched
+                crown land forest as far as the eye can see.
+                The location is accessible via a well-maintained forest service road. However, low-clearance vehicles
+                (such as sports cars) may not be able to make it to the top, so we recommend using vehicles with higher
+                clearance.
+              </p>
+
+              <p>
+                The entrance to the forest service road is located approximately 12 minutes outside of Princeton, BC, at
+                3362 Hembrie Mountain Road — using a GPS/maps app is recommended.
+                Once on the forest service road, you will see signs guiding you all the way up to the venue. If you
+                require
+                assistance with transportation or accessing the site, please let us know when you RSVP.
+                We will be sharing more detailed access information at the end of May.</p>
+              <p>
+                In the meantime, if you have any questions, feel free to message the bride at
+                <a href="tel:604-902-0397">604-902-0397</a>.
+              </p>
+
+            </div>
+
+            <div class="accommodations-text">
+
+              <h2>Accommodations</h2>
+
+              <p>
+                Our venue offers on-site camping for anyone who would like to stay close to the celebration! For our BC
+                guests, please bring your usual camping gear. Trailers, campers, rooftop tents, and traditional tents
+                are
+                all welcome.
+              </p>
+
+              <p>To reserve a site ahead of time, please follow the links provided below.
+                If you’re flying in and would like to camp but won’t be able to bring your gear, just let us know when
+                you
+                RSVP
+                or contact the bride directly at
+                <a href="tel:604-902-0397">604-902-0397</a>.
+              </p>
+
+              <p>We also have a few alternative accommodations available, but they are limited, so please reach out as
+                early
+                as
+                possible if you would like to secure one.</p>
+
+              <p>
+                If camping isn’t your style but you’d still like to stay nearby, there is a Sandman Inn located in
+                Princeton, as well as a few motels.
+              </p>
+
+              <h3>Suggested Items to Bring:</h3>
+
+              <ul>
+                <li>Tent, camper, or rooftop tent</li>
+                <li>Sleeping pad</li>
+                <li>Sleeping bags or blankets</li>
+                <li>Pillows</li>
+                <li>Snacks and breakfast for the next morning</li>
+                <li>Warm layers for the evening (the site sits at 1,200m / 4,000ft and can get chilly at night)</li>
+                <li>Propane fires will be provided, but feel free to bring your own if you’d like</li>
+              </ul>
+
+
+            </div>
+
+
+            <div class="timeline-text">
+              <h2>Timeline</h2>
+
+              <p>
+                <strong>Wedding Party:</strong>
+                If you are part of the wedding party, you will receive your personalized day-of timeline directly from
+                the
+                Bride & Groom.
+              </p>
+
+              <p>
+                <strong>All Guests:</strong>
+                Please plan to arrive between 3:00 PM and 3:45 PM. Below is a general outline of the day’s events:
+              </p>
+
+              <ul>
+                <li><strong>3:00 PM – 3:45 PM</strong> - Welcome drinks & lawn games</li>
+                <li><strong>4:00 PM – 5:00 PM</strong> - Ceremony</li>
+                <li><strong>5:00 PM – 5:45 PM</strong> - Champagne toast & a short break</li>
+                <li><strong>5:45 PM – 7:00 PM</strong> - Dinner</li>
+                <li><strong>7:10 PM</strong> - First dance</li>
+                <li><strong>7:20 PM</strong> - Father-daughter dance</li>
+                <li><strong>7:30 PM</strong> - Cake cutting</li>
+                <li><strong>7:45 PM – late</strong> - Bonfire, s’mores & dancing under the stars</li>
+              </ul>
+
+            </div>
+
+
+            <div class="food-drink-text">
+              <h2>Food & Drinks</h2>
+
+              <p>
+                We will be serving a BBQ-style buffet with two meats and a variety of hearty side dishes. Portions will
+                be
+                generous, so come hungry!
+                Following dinner, we’ll have wedding cake and a s’mores station to satisfy your sweet tooth.
+                and
+                a champagne toast for all guests following the ceremony.
+              </p>
+
+              <p>
+                Beyond that, please note that alcohol will be limited to a couple of drinks per person. If you’d like to
+                enjoy more, feel free to bring your favorite beverages to enjoy throughout the evening.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="the-day-image">
+            <img src="./assets/vertical-cake.jpg">
+          </div>
+        </div>
+
       </div>
 
-      <!-- Attire Page (placeholder) -->
+      <!-- Attire Page -->
       <div v-else-if="currentPage === 'attire'" class="page attire-page">
-        <h1>Attire</h1>
-        <p>Information about the dress code for our wedding.</p>
-        <!-- Attire details -->
+        <div class="attire-content">
+          <div class="attire-text">
+            <p> We’re embracing the magic of nature for our wedding—think autumn inspired.
+              Picture rich fall colors: burnt orange, deep purple, maroon, browns, reds, and gold, all paired with
+              semi-formal
+              attire. </p>
+            <p> For the ladies: mid-to-floor length dresses, a sharp pantsuit, or a dressy jumpsuit will fit right in.
+              For the gents: darker tones are your friend. A suit, a blazer with dress pants, or even just a nice shirt
+              with
+              slacks will do the trick. </p>
+            <p> Bonus tip! Once the sun goes down, we’ll be swapping dancing shoes for cozy layers. At 1200m (4000ft),
+              the
+              evening air is a bit chilly —even in summer. So pack your favorite sweaters, blanket, jacket, warm socks,
+              and
+              toque. We’ll have a fire (or a propane one if Mother Nature’s feeling spicy), and plenty of time under the
+              stars. </p>
+          </div>
+          <div class="attire-sidebar"> </div>
+        </div>
+        <div class="attire-footbar"> </div>
       </div>
     </main>
   </div>
@@ -482,7 +626,7 @@ body {
   margin-bottom: 12px;
 }
 
-.jump-to-rsvp-button {
+.jump-to-day-button {
   background-color: var(--secondary-color);
   font-size: 38px;
   width: 100%;
@@ -491,15 +635,27 @@ body {
 }
 
 /* Page-specific styles */
-.page:not(.landing-page) {
+.page:not(.landing-page, .the-day-page, .attire-page) {
   padding: var(--spacing-lg);
-  margin: 0 auto;
 }
 
 .rsvp-page {
   position: relative;
   padding-top: 2rem;
 }
+
+.the-day-page {
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-sm);
+}
+
+.attire-page {
+  min-height: calc(100vh - 60px);
+  padding-top: 56px;
+}
+
 
 /* RSVP Page specific style */
 
@@ -619,9 +775,7 @@ body {
 
 .rsvp-image {
   width: 50%;
-  /* Set to exactly 50% of the parent container */
   max-width: 50vw;
-  /* Max width of 50% of viewport */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -631,9 +785,7 @@ body {
   width: 100%;
   height: auto;
   max-height: 90vh;
-  /* Prevent image from being too tall */
   object-fit: contain;
-  /* Changed from cover to maintain aspect ratio */
   border-radius: 8px;
 }
 
@@ -641,6 +793,83 @@ body {
   height: 90px;
 }
 
+/* the-day specific design */
+
+.the-day-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.the-day-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.the-day-image img {
+  max-width: 30vw;
+  height: auto;
+}
+
+.location-text {
+  justify-content: left;
+  align-items: start;
+  text-align: start;
+}
+
+.accommodations-text {
+  justify-content: left;
+  align-items: start;
+  text-align: start;
+}
+
+.timeline-text {
+  justify-content: left;
+  align-items: start;
+  text-align: start;
+}
+
+.food-drink-text {
+  justify-content: left;
+  align-items: start;
+  text-align: start;
+}
+
+/* attire-page specific styles */
+
+.attire-content {
+  display: flex;
+  min-height: calc(100vh - 56px - var(--spacing-lg));
+}
+
+.attire-text {
+  flex: 1;
+  padding-right: var(--spacing-md);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  padding-top: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+.attire-text p {
+  text-align: left;
+}
+
+.attire-sidebar {
+  width: var(--spacing-lg);
+  background-color: var(--secondary-color);
+  z-index: 1003;
+}
+
+.attire-footbar {
+  height: var(--spacing-lg);
+  width: 100%;
+  background-color: var(--secondary-color);
+  margin-top: auto;
+}
 
 /* Responsive design */
 @media (max-width: 768px) {
