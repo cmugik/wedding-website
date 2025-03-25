@@ -275,6 +275,11 @@ async function submitForm() {
             </form>
             <div v-if="formSubmitted" class="resolution-message">
               Thank you for your RSVP! We've received your information.
+              <br>
+              If you would like to get us a gift, please consider
+              adding to our home or honeymoon fund! We're planning on buying a house in the near future. You can send
+              these to kellettjazmyn@gmail.com, or bring cash to the
+              wedding. If you prefer a tangible gift, our registry will be live in April!
             </div>
             <div class="rsvp-spacing-bar">
             </div>
