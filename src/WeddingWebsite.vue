@@ -226,7 +226,7 @@ async function submitForm() {
       <div v-else-if="currentPage === 'rsvp'" class="page rsvp-page">
         <div class="rsvp-deadline-header">
           <h1>
-            Please let us know if you can attend our special day before August!
+            Please let us know if you can attend our special day before June 1st!
           </h1>
         </div>
         <div class="rsvp-form-image-section">
