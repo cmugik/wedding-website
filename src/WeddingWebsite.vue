@@ -20,10 +20,13 @@ const formData = ref({
 
 const errors = ref({
   name: false,
-  contact: false
+  contact: false,
+  attendance: false
 });
 
 const formSubmitted = ref(false);
+
+const formAttempted = ref(false);
 
 // Methods
 
@@ -50,22 +53,70 @@ const isValidPhone = computed(() => {
 });
 
 const isFormValid = computed(() => {
-  return formData.value.name && (isValidEmail.value || isValidPhone.value)
+  return !errors.value.name && !errors.value.contact && !errors.value.attendance;
 });
 
 function validateForm() {
+  errors.value
   errors.value.name = !formData.value.name;
   errors.value.contact = !(
     (formData.value.email && isValidEmail.value) ||
     (formData.value.phone && isValidPhone.value)
   );
+  errors.value.attendance = !document.querySelector('input[name="rsvp"]:checked');
 }
 
-function submitForm() {
-  // stub
-  formSubmitted.value = true;
-}
+async function submitForm() {
+  formAttempted.value = true;
+  validateForm();
 
+  if (!isFormValid.value) {
+    return;
+  }
+
+  try {
+    const rsvpValue = document.querySelector('input[name="rsvp"]:checked')?.value;
+
+    if (!rsvpValue) {
+      return;
+    }
+
+    const dataToSend = {
+      rsvp: rsvpValue,
+      name: formData.value.name,
+      email: formData.value.email,
+      phone: formData.value.phone,
+      notes: formData.value.notes,
+      timestamp: new Date().toISOString()
+    };
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    // Send to Cloudflare Worker
+    const response = await fetch('https://your-worker-url.workers.dev/rsvp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dataToSend),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit RSVP');
+    }
+
+    formSubmitted.value = true;
+  } catch (error) {
+    console.error('Error submitting RSVP:', error);
+    alert('There was an error submitting your RSVP. Please try again later.');
+  } finally {
+    if (!formSubmitted.value) {
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send RSVP';
+    }
+  }
+}
 </script>
 
 <template>
@@ -182,31 +233,36 @@ function submitForm() {
             <form v-if="!formSubmitted" id="rsvpForm" @submit.prevent="submitForm">
               <div class="rsvp-options">
                 <label class="rsvp-option rsvp-option-yes">
-                  <input type="radio" name="rsvp" value="yes">
+                  <input type="radio" name="rsvp" value="yes" @change="errors.attendance = false">
                   <span class="custom-radio"></span>
                   <span class="rsvp-option-text">Yes, I can attend</span>
                 </label>
                 <label class="rsvp-option rsvp-option-no">
-                  <input type="radio" name="rsvp" value="no">
+                  <input type="radio" name="rsvp" value="no" @change="errors.attendance = false">
                   <span class="custom-radio"></span>
                   <span class="rsvp-option-text">No, I cannot attend</span>
                 </label>
+                <div v-if="formAttempted && errors.attendance" class="error">Please select whether you can attend or
+                  not!</div>
               </div>
+
               <div class="form-group">
-                <input type="text" id="name" v-model="formData.name" placeholder="Your name"
-                  :class="{ 'highlight-error': errors.name }" @input="validateForm">
-                <div v-if="errors.name" class="error">Please include your name!</div>
+                <input type="text" id="name" v-model="formData.name" @input="errors.name = false"
+                  placeholder="Your name" :class="{ 'highlight-error': formAttempted && errors.name }">
+                <div v-if="formAttempted && errors.name" class="error">Please include your name!</div>
               </div>
+
               <div class="form-group">
                 <div class="contact-info">
-                  <input type="email" id="email" v-model="formData.email" placeholder="Email"
-                    :class="{ 'highlight-error': errors.contact && formData.email && !isValidEmail }"
-                    @input="validateForm">
-                  <input type="tel" id="phone" v-model="formData.phone" placeholder="Phone #"
-                    :class="{ 'highlight-error': errors.contact && formData.phone && !isValidPhone }"
-                    @input="validateForm">
+                  <input type="email" id="email" v-model="formData.email" @input="errors.contact = false"
+                    placeholder="Email"
+                    :class="{ 'highlight-error': formAttempted && errors.contact && formData.email && !isValidEmail }">
+                  <input type="tel" id="phone" v-model="formData.phone" @input="errors.contact = false"
+                    placeholder="Phone #"
+                    :class="{ 'highlight-error': formAttempted && errors.contact && formData.phone && !isValidPhone }">
                 </div>
-                <div v-if="errors.contact" class="error">Please provide at least one valid contact method!</div>
+                <div v-if="formAttempted && errors.contact" class="error">Please provide at least one valid contact
+                  method!</div>
               </div>
               <div class="form-group">
                 <textarea id="notes" v-model="formData.notes"
@@ -734,6 +790,13 @@ body {
   flex-direction: column;
   gap: 15px;
   margin-bottom: 1rem;
+}
+
+.rsvp-options.highlight-error {
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .rsvp-option {
