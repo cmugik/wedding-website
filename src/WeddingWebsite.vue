@@ -5,8 +5,8 @@ import { computed, ref } from 'vue';
 
 const currentPage = ref('welcome');
 const weddingData = ref({
-  name1: 'Mack',
-  name2: 'Jazmyn',
+  name1: 'MACK',
+  name2: 'JAZMYN',
   date: 'August 17, 2025',
   location: 'Princeton, BC'
 });
@@ -152,9 +152,9 @@ async function submitForm() {
         <!-- Banner with names and date -->
         <section class="banner">
           <div class="banner-overlay">
-            <h1>{{ weddingData.name1 }} & {{ weddingData.name2 }}</h1>
-            <p class="wedding-date">{{ weddingData.date }}</p>
-            <p class="wedding-location">{{ weddingData.location }}</p>
+            <h1>{{ weddingData.name1 }} AND {{ weddingData.name2 }}</h1>
+            <h3 class="wedding-date">{{ weddingData.date }}</h3>
+            <h3 class="wedding-location">{{ weddingData.location }}</h3>
           </div>
         </section>
 
@@ -162,7 +162,7 @@ async function submitForm() {
         <section class="content-section">
           <div class="section-container">
             <div class="photo-container">
-              <img src="/src/assets/vertical-handholds-finley.jpg" alt="Couple photo" class="section-photo">
+              <img src="/src/assets/vertical-kalm-rock.jpg" alt="Couple photo" class="section-photo hidden-on-mobile">
             </div>
             <div class="text-container">
               <h2>Our Story</h2>
@@ -197,7 +197,6 @@ async function submitForm() {
         <section class="content-section">
           <div class="section-container reverse">
             <div class="text-container">
-              <h2>Join Us</h2>
 
               <p>The mosquitos were thick and the exhaustion was high, but we didn’t care. We both kept saying “just one
                 more waterfall”. On the journey through what felt like untouched nature, with no signs of humans, we
@@ -206,13 +205,23 @@ async function submitForm() {
               <p>From that point on, we were hooked—whether it’s summiting mountains, scuba diving, or ski touring,
                 adventure has been at the heart of our story.</p>
 
+              <p>
+                That spot has been special to us for years—we’ve celebrated several anniversaries there, including our
+                most recent one. It’s also where Finnley went on his first big hike. Even our engagement photos, the
+                ones you see on the website, were taken in that same area. It’s one of those places that holds a lot of
+                our favorite memories.
+
+              </p>
+
               <p>For our honeymoon, we’ll be road-tripping with Finnley through some of the most beautiful parks in the
                 Yukon and Alaska.</p>
 
               <p>Thank you for celebrating with us on top of a mountain, in a way that feels so perfectly us.</p>
+
+              <h2>Join Us</h2>
             </div>
             <div class="photo-container">
-              <img src="/src/assets/vertical-kalm-rock.jpg" alt="Venue photo" class="section-photo">
+              <img src="/src/assets/vertical-lift2.jpg" alt="Venue photo" class="section-photo">
             </div>
           </div>
         </section>
@@ -297,8 +306,11 @@ async function submitForm() {
 
         <div class="the-day-content">
           <div class="the-day-text">
+
+            <br>
             <div class="location-text">
               <h2>Location</h2>
+              <br>
 
               <p>
                 Our wedding will be held at
@@ -309,6 +321,8 @@ async function submitForm() {
                 (such as sports cars) may not be able to make it to the top, so we recommend using vehicles with higher
                 clearance.
               </p>
+
+              <br>
 
               <p>
                 The entrance to the forest service road is located approximately 12 minutes outside of Princeton, BC, at
@@ -326,7 +340,9 @@ async function submitForm() {
 
             <div class="accommodations-text">
 
+              <br>
               <h2>Accommodations</h2>
+              <br>
 
               <p>
                 Our venue offers on-site camping for anyone who would like to stay close to the celebration! For our BC
@@ -348,14 +364,16 @@ async function submitForm() {
                 as
                 possible if you would like to secure one.</p>
 
+              <br>
               <p>
                 If camping isn’t your style but you’d still like to stay nearby, there is a Sandman Inn located in
                 Princeton, as well as a few motels.
               </p>
 
-              <h3>Suggested Items to Bring:</h3>
+              <br>
+              <h3 class="day-list-header"> Suggested Items to Bring:</h3>
 
-              <ul>
+              <ul class="day-list">
                 <li>Tent, camper, or rooftop tent</li>
                 <li>Sleeping pad</li>
                 <li>Sleeping bags or blankets</li>
@@ -369,8 +387,11 @@ async function submitForm() {
             </div>
 
 
+            <br>
             <div class="timeline-text">
+              <br>
               <h2>Timeline</h2>
+              <br>
 
               <p>
                 <strong>Wedding Party:</strong>
@@ -384,7 +405,7 @@ async function submitForm() {
                 Please plan to arrive between 3:00 PM and 3:45 PM. Below is a general outline of the day’s events:
               </p>
 
-              <ul>
+              <ul class="day-list">
                 <li><strong>3:00 PM – 3:45 PM</strong> - Welcome drinks & lawn games</li>
                 <li><strong>4:00 PM – 5:00 PM</strong> - Ceremony</li>
                 <li><strong>5:00 PM – 5:45 PM</strong> - Champagne toast & a short break</li>
@@ -398,16 +419,18 @@ async function submitForm() {
             </div>
 
 
+            <br>
             <div class="food-drink-text">
-              <h2>Food & Drinks</h2>
+              <br>
+              <h2>Food and Drinks</h2>
+              <br>
 
               <p>
                 We will be serving a BBQ-style buffet with two meats and a variety of hearty side dishes. Portions will
                 be
                 generous, so come hungry!
-                Following dinner, we’ll have wedding cake and a s’mores station to satisfy your sweet tooth.
-                and
-                a champagne toast for all guests following the ceremony.
+                Following dinner, we’ll have wedding cake and a s’mores station to satisfy your sweet tooth and a
+                champagne toast for all guests following the ceremony.
               </p>
 
               <p>
@@ -429,7 +452,8 @@ async function submitForm() {
       <div v-else-if="currentPage === 'attire'" class="page attire-page">
         <div class="attire-content">
           <div class="attire-text">
-            <p> We’re embracing the magic of nature for our wedding—think autumn inspired.
+            <h2> We’re embracing the magic of nature for our wedding—think autumn inspired.</h2>
+            <p>
               Picture rich fall colors: burnt orange, deep purple, maroon, browns, reds, and gold, all paired with
               semi-formal
               attire. </p>
@@ -444,6 +468,11 @@ async function submitForm() {
               toque. We’ll have a fire (or a propane one if Mother Nature’s feeling spicy), and plenty of time under the
               stars. </p>
           </div>
+
+          <div class="attire-image">
+            <img src="/src/assets/vertical-lift1.jpg" class="attire-image">
+          </div>
+
           <div class="attire-sidebar"> </div>
         </div>
         <div class="attire-footbar"> </div>
@@ -525,11 +554,19 @@ async function submitForm() {
 }
 
 body {
-  /* TODO font change? */
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Monsterrat';
   color: var(--text-color);
   background-color: var(--background-color);
   line-height: 1.6;
+}
+
+h1 {
+  font-family: 'ogg-medium';
+}
+
+h2,
+h3 {
+  font-family: 'ogg-regular';
 }
 
 #app {
@@ -709,8 +746,12 @@ body {
 .the-day-page {
   padding-top: var(--spacing-lg);
   padding-bottom: var(--spacing-lg);
-  padding-left: var(--spacing-lg);
   padding-right: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: justify;
+  text-align-last: center;
 }
 
 .attire-page {
@@ -794,8 +835,8 @@ body {
 .rsvp-options {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 1rem;
+  gap: 0.25rem;
+  margin-bottom: 0.18rem;
 }
 
 .rsvp-options.highlight-error {
@@ -895,6 +936,14 @@ body {
   text-align: start;
 }
 
+.day-list {
+  margin-left: var(--spacing-md);
+}
+
+.day-list-header {
+  margin-bottom: 0.5rem;
+}
+
 .timeline-text {
   justify-content: left;
   align-items: start;
@@ -927,6 +976,19 @@ body {
   text-align: left;
 }
 
+.attire-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.attire-image img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
 .attire-sidebar {
   width: var(--spacing-lg);
   background-color: var(--secondary-color);
@@ -940,12 +1002,25 @@ body {
   margin-top: auto;
 }
 
-/* Responsive design - expanding on existing code */
+/* Responsive design */
 @media (max-width: 768px) {
 
-  /* Your existing responsive code */
   .rsvp-form-image-section {
     flex-direction: column;
+  }
+
+  .rsvp-deadline-header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 14px;
+  }
+
+  .hidden-on-mobile {
+    visibility: hidden !important;
+    position: absolute !important;
+    height: 0 !important;
+    width: 0 !important;
   }
 
   .rsvp-image {
@@ -955,8 +1030,6 @@ body {
     margin-bottom: var(--spacing-md);
   }
 
-  /* Additional responsive improvements */
-  /* Navigation adjustments */
   .nav-menu {
     padding: 0.5rem;
   }
@@ -1014,6 +1087,12 @@ body {
     flex-direction: column;
   }
 
+  .attire-image {
+    order: 2;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+
   .attire-sidebar {
     width: 100%;
     height: var(--spacing-sm);
@@ -1021,9 +1100,9 @@ body {
 
   .attire-text {
     padding: var(--spacing-sm);
+    order: 1;
   }
 
-  /* Form improvements */
   .contact-info {
     flex-direction: column;
   }
