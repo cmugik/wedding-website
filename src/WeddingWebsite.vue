@@ -95,13 +95,14 @@ async function submitForm() {
     submitBtn.textContent = 'Sending...';
 
     // Send to Cloudflare Worker
-    const response = await fetch('https://your-worker-url.workers.dev/rsvp', {
+    const response = await fetch('https://rough-sun-8ed1.caleb-kellett.workers.dev/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(dataToSend),
     });
 
     if (!response.ok) {
+      console.error(response);
       throw new Error('Failed to submit RSVP');
     }
 
