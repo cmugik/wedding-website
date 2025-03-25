@@ -935,19 +935,106 @@ body {
   margin-top: auto;
 }
 
-/* Responsive design */
+/* Responsive design - expanding on existing code */
 @media (max-width: 768px) {
+
+  /* Your existing responsive code */
   .rsvp-form-image-section {
     flex-direction: column;
-
   }
 
   .rsvp-image {
     order: -1;
-    /* Move image above form on mobile */
     width: 100%;
     max-width: 100%;
     margin-bottom: var(--spacing-md);
+  }
+
+  /* Additional responsive improvements */
+  /* Navigation adjustments */
+  .nav-menu {
+    padding: 0.5rem;
+  }
+
+  .nav-links {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-links li {
+    margin-left: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  /* Banner text size */
+  .banner h1 {
+    font-size: 2.2rem;
+  }
+
+  .wedding-date {
+    font-size: 1.2rem;
+  }
+
+  .wedding-location {
+    font-size: 1rem;
+  }
+
+  /* Content sections stack */
+  .section-container,
+  .section-container.reverse {
+    flex-direction: column;
+  }
+
+  .content-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .text-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* The day page mobile layout */
+  .the-day-content {
+    flex-direction: column;
+  }
+
+  .the-day-image img {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  /* Attire page adjustments */
+  .attire-content {
+    flex-direction: column;
+  }
+
+  .attire-sidebar {
+    width: 100%;
+    height: var(--spacing-sm);
+  }
+
+  .attire-text {
+    padding: var(--spacing-sm);
+  }
+
+  /* Form improvements */
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .contact-info input {
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .jump-to-day-button {
+    font-size: 28px;
+    padding: 10px;
   }
 }
 </style>
