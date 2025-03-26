@@ -169,7 +169,7 @@ async function submitForm() {
 
               <p>Mack and Jaz met on August 17th, 2017. Exactly eight years to the day of our wedding.</p>
 
-              <p>When Mack found out Jazmyn was a drywaller too, it was love at first sight. What we didn’t know then
+              <p>When Mack found out Jazmyn was a drywaller too, it was love at first sight. What we didn't know then
                 was how intertwined our lives had been all along. Our dads had been friends for years, and our families
                 knew each other long before we were born. There are even photos of us as babies playing together on
                 family camping trips. To make it even more fated, our childhood best friends were siblings.</p>
@@ -180,15 +180,17 @@ async function submitForm() {
 
               <p>As we got to know each other better, enjoying our first summer together, we started kayaking as a way
                 to explore new things. After seeing a waterfall from our kayak on the other end of the lake, we wondered
-                where it must be coming from. Determined to find out, we went home that night and researched the area.
-                First thing the next day we set off, with everything but the kitchen sink on our backs. We took a
-                massive bag of life jackets to use as beds, oversized bed pillows from home, a small but heavy tent and
-                an assortment of random items we didn’t end up using. Laughing the entire time about how ridiculous we
-                looked with life jackets on our backs.</p>
+                where it must be coming from.</p>
+
+              <p>Determined to find out, we went home that night and researched the area. First thing the next day we
+                set off, with everything but the kitchen sink on our backs. We took a massive bag of life jackets to use
+                as beds, oversized bed pillows from home, a small but heavy tent and an assortment of random items we
+                didn't end up using. Laughing the entire time about how ridiculous we looked with life jackets on our
+                backs.</p>
 
               <p>We paddled across a lake and hiked up the waterfall. Upon reaching the top we felt like we walked into
                 the meadows of a fairytale. A beautiful lake and 10 little waterfalls running through flowers all around
-                it. We didn’t want the adventure to end, so we took a quick dip in the glacial lake, dropped our bags
+                it. We didn't want the adventure to end, so we took a quick dip in the glacial lake, dropped our bags
                 and continued across the meadows to the other side.</p>
             </div>
           </div>
@@ -198,26 +200,22 @@ async function submitForm() {
           <div class="section-container reverse">
             <div class="text-container">
 
-              <p>The mosquitos were thick and the exhaustion was high, but we didn’t care. We both kept saying “just one
-                more waterfall”. On the journey through what felt like untouched nature, with no signs of humans, we
+              <p>The mosquitos were thick and the exhaustion was high, but we didn't care. We both kept saying "just one
+                more waterfall". On the journey through what felt like untouched nature, with no signs of humans, we
                 found a tiny piece of hard plastic, which Jaz still has as a souvenir of the day.</p>
 
-              <p>From that point on, we were hooked—whether it’s summiting mountains, scuba diving, or ski touring,
+              <p>From that point on, we were hooked—whether it's summiting mountains, scuba diving, or ski touring,
                 adventure has been at the heart of our story.</p>
 
-              <p>
-                That spot has been special to us for years—we’ve celebrated several anniversaries there, including our
-                most recent one. It’s also where Finnley went on his first big hike. Even our engagement photos, the
-                ones you see on the website, were taken in that same area. It’s one of those places that holds a lot of
-                our favorite memories.
+              <p>That spot has been special to us for years—we've celebrated several anniversaries there, including our
+                most recent one. It's also where Finnley went on his first big hike. Even our engagement photos, the
+                ones you see on the website, were taken in that same area. It's one of those places that holds a lot of
+                our favorite memories.</p>
 
-              </p>
-
-              <p>For our honeymoon, we’ll be road-tripping with Finnley through some of the most beautiful parks in the
+              <p>For our honeymoon, we'll be road-tripping with Finnley through some of the most beautiful parks in the
                 Yukon and Alaska.</p>
 
               <p>Thank you for celebrating with us on top of a mountain, in a way that feels so perfectly us.</p>
-
               <br>
 
               <h2>Join Us</h2>
@@ -453,6 +451,8 @@ async function submitForm() {
                   <div class="timeline-event">Bonfire, s'mores & dancing under the stars</div>
                 </li>
               </ul>
+
+              <br>
 
               <p>
                 We can't wait to celebrate with you!!!
@@ -773,7 +773,6 @@ p {
 .text-container p {
   font-size: 1.3rem;
   line-height: 1.8;
-  margin-bottom: 12px;
 }
 
 .jump-to-day-button {
@@ -1158,8 +1157,9 @@ ul li {
   }
 
   .text-container p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
   }
 
   /* The day page mobile layout */
