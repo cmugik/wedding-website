@@ -304,8 +304,6 @@ async function submitForm() {
 
       <!-- The Day Page -->
       <div v-else-if="currentPage === 'the-day'" class="page the-day-page">
-
-
         <div class="the-day-content">
           <div class="the-day-text">
 
@@ -320,6 +318,9 @@ async function submitForm() {
                 <a href="https://jurasunflowersummit.ca/">Jura Sunflower Summit</a>,
                 a stunning 200-acre mountaintop venue surrounded by untouched
                 crown land forest as far as the eye can see.
+              </p>
+
+              <p>
                 The location is accessible via a well-maintained forest service road. However, low-clearance vehicles
                 (such as sports cars) may not be able to make it to the top, so we recommend using vehicles with higher
                 clearance.
@@ -328,10 +329,20 @@ async function submitForm() {
               <p>
                 The entrance to the forest service road is located approximately 12 minutes outside of Princeton, BC, at
                 3362 Hembrie Mountain Road — using a GPS/maps app is recommended.
-                Once on the forest service road, you will see signs guiding you all the way up to the venue. If you
-                require
-                assistance with transportation or accessing the site, please let us know when you RSVP.
-                We will be sharing more detailed access information at the end of May.</p>
+              </p>
+
+              <p>
+                Once on the forest service road, you will see signs guiding you all the way up to the venue.
+              </p>
+
+              <p>
+                If you require assistance with transportation or accessing the site, please let us know when you RSVP.
+              </p>
+
+              <p>
+                We will be sharing more detailed access information at the end of May.
+              </p>
+
               <p>
                 In the meantime, if you have any questions, feel free to message the bride at
                 <a href="tel:604-902-0397">604-902-0397</a>.
@@ -346,29 +357,28 @@ async function submitForm() {
               <br>
 
               <p>
-                Our venue offers on-site camping for anyone who would like to stay close to the celebration! For our BC
-                guests, please bring your usual camping gear. Trailers, campers, rooftop tents, and traditional tents
-                are
-                all welcome.
+                Our venue offers on-site camping for anyone who would like to stay close to the celebration!
               </p>
 
-              <p>To reserve a site ahead of time, please follow the links provided below.
-                If you’re flying in and would like to camp but won’t be able to bring your gear, just let us know when
-                you
-                RSVP
-                or contact the bride directly at
+              <p>
+                For our BC guests, please bring your usual camping gear. Trailers, campers, rooftop tents, and
+                traditional tents
+                are all welcome.
+              </p>
+
+              <p>
+                To reserve a site ahead of time, please follow the links provided below.
+              </p>
+
+              <p>
+                If you're flying in and would like to camp but won't be able to bring your gear, just let us know when
+                you RSVP or contact the bride directly at
                 <a href="tel:604-902-0397">604-902-0397</a>.
               </p>
 
-              <p>We also have a few alternative accommodations available, but they are limited, so please reach out as
-                early
-                as
-                possible if you would like to secure one.</p>
-
-              <br>
               <p>
-                If camping isn’t your style but you’d still like to stay nearby, there is a Sandman Inn located in
-                Princeton, as well as a few motels.
+                We also have a few alternative accommodations available, but they are limited, so please reach out as
+                early as possible if you would like to secure one.
               </p>
 
               <br>
@@ -381,12 +391,16 @@ async function submitForm() {
                 <li>Pillows</li>
                 <li>Snacks and breakfast for the next morning</li>
                 <li>Warm layers for the evening (the site sits at 1,200m / 4,000ft and can get chilly at night)</li>
-                <li>Propane fires will be provided, but feel free to bring your own if you’d like</li>
+                <li>Propane fires will be provided, but feel free to bring your own if you'd like</li>
               </ul>
+              <br>
 
+              <p>
+                If camping isn't your style but you'd still like to stay nearby, there is a Sandman Inn located in
+                Princeton municipality near by.
+              </p>
 
             </div>
-
 
             <br>
             <div class="timeline-text">
@@ -395,15 +409,14 @@ async function submitForm() {
               <br>
 
               <p>
-                <strong>Wedding Party:</strong>
-                If you are part of the wedding party, you will receive your personalized day-of timeline directly from
-                the
-                Bride & Groom.
+                <strong>Wedding Party:</strong> If you are part of the wedding party, you will receive your personalized
+                day-of timeline directly from
+                the Bride & Groom.
               </p>
 
               <p>
-                <strong>All Guests:</strong>
-                Please plan to arrive between 3:00 PM and 3:45 PM. Below is a general outline of the day’s events.
+                <strong>All Guests:</strong> Please plan to arrive between 3:00 PM and 3:45 PM. Below is a general
+                outline of the day's events:
               </p>
 
               <ul class="day-list">
@@ -440,40 +453,44 @@ async function submitForm() {
                   <div class="timeline-event">Bonfire, s'mores & dancing under the stars</div>
                 </li>
               </ul>
-            </div>
 
+              <p>
+                We can't wait to celebrate with you!!!
+              </p>
+            </div>
 
             <br>
             <div class="food-drink-text">
               <br>
-              <h2>Food & Drinks</h2>
+              <h2>Food and Drinks</h2>
               <br>
 
               <p>
                 We will be serving a BBQ-style buffet with two meats and a variety of hearty side dishes. Portions will
-                be
-                generous, so come hungry!
-                Following dinner, we’ll have wedding cake and a s’mores station to satisfy your sweet tooth and a
-                champagne toast for all guests following the ceremony.
+                be generous, so come hungry!
               </p>
 
-              <br>
+              <p>
+                Following dinner, we'll have wedding cake and a s'mores station to satisfy your sweet tooth.
+              </p>
 
               <p>
-                Beyond that, please note that alcohol will be limited to a couple of drinks per person. If you’d like to
-                enjoy more, feel free to bring your favorite beverages to enjoy throughout the evening.
+                We'll also be doing a welcome drink upon arrival for our guests who arrive prior to ceremony start time,
+                and a champagne toast for all guests following the ceremony. Beyond that, please note that alcohol will
+                be limited to a couple of drinks per person. If you'd like to enjoy more, feel free to bring your
+                favorite beverages to enjoy throughout the evening.
               </p>
             </div>
 
           </div>
 
-          <div class="the-day-image">
-            <img src="./assets/vertical-cake.jpg">
-          </div>
+        </div>
+
+        <div class="the-day-image">
+          <img src="./assets/vertical-cake.jpg">
         </div>
 
       </div>
-
       <!-- Attire Page -->
       <div v-else-if="currentPage === 'attire'" class="page attire-page">
         <div class="attire-content">
@@ -485,6 +502,8 @@ async function submitForm() {
               semi-formal
               attire. </p>
             <p> For the ladies: mid-to-floor length dresses, a sharp pantsuit, or a dressy jumpsuit will fit right in.
+            </p>
+            <p>
               For the gents: darker tones are your friend. A suit, a blazer with dress pants, or even just a nice shirt
               with
               slacks will do the trick. </p>
@@ -492,7 +511,8 @@ async function submitForm() {
               the
               evening air is a bit chilly —even in summer. So pack your favorite sweaters, blanket, jacket, warm socks,
               and
-              toque. We’ll have a fire (or a propane one if Mother Nature’s feeling spicy), and plenty of time under the
+              toque. </p>
+            <p>We’ll have a fire (or a propane one if Mother Nature’s feeling spicy), and plenty of time under the
               stars. </p>
           </div>
 
@@ -781,8 +801,6 @@ p {
   padding-left: var(--spacing-sm);
   font-size: 1.3rem;
   line-height: 1.8;
-  text-align: justify;
-  text-align-last: center;
 }
 
 .attire-page {
@@ -946,8 +964,17 @@ p {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.the-day-text p,
+h1,
+h2,
+h3,
+li,
+ul {
+  text-align: center;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
 }
 
 .the-day-image img {
@@ -977,8 +1004,12 @@ p {
   list-style: none;
 }
 
+ul li {
+  padding-top: 5px;
+}
+
 .day-list-header {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .timeline-text {
@@ -1056,6 +1087,14 @@ p {
 /* Responsive design */
 @media (max-width: 768px) {
 
+  .landing-page .content-section+.content-section {
+    padding-top: 0;
+  }
+
+  .landing-page .content-section:first-of-type {
+    padding-bottom: 0;
+  }
+
   .rsvp-form-image-section {
     flex-direction: column;
   }
@@ -1064,7 +1103,7 @@ p {
     margin-top: 1rem;
     margin-bottom: 2rem;
     color: var(--primary-color);
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .hidden-on-mobile {
@@ -1150,6 +1189,7 @@ p {
   .day-list {
     margin-left: 0;
     padding-left: 0;
+    list-style: none;
   }
 
   .the-day-image img {
