@@ -152,7 +152,7 @@ async function submitForm() {
         <!-- Banner with names and date -->
         <section class="banner">
           <div class="banner-overlay">
-            <h1>{{ weddingData.name1 }} AND {{ weddingData.name2 }}</h1>
+            <h1>{{ weddingData.name1 }} & {{ weddingData.name2 }}</h1>
             <h3 class="wedding-date">{{ weddingData.date }}</h3>
             <h3 class="wedding-location">{{ weddingData.location }}</h3>
           </div>
@@ -276,7 +276,7 @@ async function submitForm() {
               </div>
               <div class="form-group">
                 <textarea id="notes" v-model="formData.notes"
-                  placeholder="Any accomodation requests or information we should know?"></textarea>
+                  placeholder="Any accommodation requests or information we should know?"></textarea>
               </div>
               <div class="form-group-rsvp-button">
                 <button type="submit" id="submitBtn" :disabled="!isFormValid">Send RSVP</button>
@@ -422,7 +422,7 @@ async function submitForm() {
             <br>
             <div class="food-drink-text">
               <br>
-              <h2>Food and Drinks</h2>
+              <h2>Food & Drinks</h2>
               <br>
 
               <p>
@@ -453,6 +453,7 @@ async function submitForm() {
         <div class="attire-content">
           <div class="attire-text">
             <h2> We’re embracing the magic of nature for our wedding—think autumn inspired.</h2>
+            <br>
             <p>
               Picture rich fall colors: burnt orange, deep purple, maroon, browns, reds, and gold, all paired with
               semi-formal
@@ -461,6 +462,7 @@ async function submitForm() {
               For the gents: darker tones are your friend. A suit, a blazer with dress pants, or even just a nice shirt
               with
               slacks will do the trick. </p>
+            <br>
             <p> Bonus tip! Once the sun goes down, we’ll be swapping dancing shoes for cozy layers. At 1200m (4000ft),
               the
               evening air is a bit chilly —even in summer. So pack your favorite sweaters, blanket, jacket, warm socks,
@@ -908,15 +910,15 @@ h3 {
 .the-day-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   gap: var(--spacing-md);
-  align-items: center;
 }
 
 .the-day-text {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .the-day-image img {
@@ -934,6 +936,7 @@ h3 {
   justify-content: left;
   align-items: start;
   text-align: start;
+  margin-top: 10px;
 }
 
 .day-list {
