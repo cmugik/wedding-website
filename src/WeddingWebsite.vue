@@ -218,6 +218,8 @@ async function submitForm() {
 
               <p>Thank you for celebrating with us on top of a mountain, in a way that feels so perfectly us.</p>
 
+              <br>
+
               <h2>Join Us</h2>
             </div>
             <div class="photo-container">
@@ -405,16 +407,39 @@ async function submitForm() {
               </p>
 
               <ul class="day-list">
-                <li><strong>3:00 PM – 3:45 PM</strong> - Welcome drinks & lawn games</li>
-                <li><strong>4:00 PM – 5:00 PM</strong> - Ceremony</li>
-                <li><strong>5:00 PM – 5:45 PM</strong> - Champagne toast & a short break</li>
-                <li><strong>5:45 PM – 7:00 PM</strong> - Dinner</li>
-                <li><strong>7:10 PM</strong> - First dance</li>
-                <li><strong>7:20 PM</strong> - Father-daughter dance</li>
-                <li><strong>7:30 PM</strong> - Cake cutting</li>
-                <li><strong>7:45 PM – late</strong> - Bonfire, s’mores & dancing under the stars</li>
+                <li>
+                  <div class="timeline-time"><strong>3:00 PM – 3:45 PM</strong></div>
+                  <div class="timeline-event">Welcome drinks & lawn games</div>
+                </li>
+                <li>
+                  <div class="timeline-time"><strong>4:00 PM – 5:00 PM</strong></div>
+                  <div class="timeline-event">Ceremony</div>
+                </li>
+                <li>
+                  <div class="timeline-time"><strong>5:00 PM – 5:45 PM</strong></div>
+                  <div class="timeline-event">Champagne toast & a short break</div>
+                </li>
+                <li>
+                  <div class="timeline-time"><strong>5:45 PM – 7:00 PM</strong></div>
+                  <div class="timeline-event">Dinner</div>
+                </li>
+                <li>
+                  <div class="timeline-time"><strong>7:10 PM</strong></div>
+                  <div class="timeline-event">First dance</div>
+                </li>
+                <li>
+                  <div class="timeline-time"><strong>7:20 PM</strong></div>
+                  <div class="timeline-event">Father-daughter dance</div>
+                </li>
+                <li>
+                  <div class="timeline-time"><strong>7:30 PM</strong></div>
+                  <div class="timeline-event">Cake cutting</div>
+                </li>
+                <li>
+                  <div class="timeline-time"><strong>7:45 PM – late</strong></div>
+                  <div class="timeline-event">Bonfire, s'mores & dancing under the stars</div>
+                </li>
               </ul>
-
             </div>
 
 
@@ -431,6 +456,8 @@ async function submitForm() {
                 Following dinner, we’ll have wedding cake and a s’mores station to satisfy your sweet tooth and a
                 champagne toast for all guests following the ceremony.
               </p>
+
+              <br>
 
               <p>
                 Beyond that, please note that alcohol will be limited to a couple of drinks per person. If you’d like to
@@ -947,6 +974,7 @@ p {
 
 .day-list {
   margin-left: var(--spacing-md);
+  list-style: none;
 }
 
 .day-list-header {
@@ -957,6 +985,20 @@ p {
   justify-content: left;
   align-items: start;
   text-align: start;
+}
+
+.timeline-time,
+.timeline-event {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-event {
+  margin-bottom: 1.5rem;
+}
+
+.day-list li:last-child .timeline-event {
+  margin-bottom: 0;
 }
 
 .food-drink-text {
@@ -1084,6 +1126,30 @@ p {
   /* The day page mobile layout */
   .the-day-content {
     flex-direction: column;
+  }
+
+  .the-day-text,
+  .location-text,
+  .accommodations-text,
+  .timeline-text,
+  .food-drink-text,
+  .day-list li {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .attire-text,
+  .attire-text p,
+  .attire-text h2 {
+    text-align: center !important;
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+
+  .day-list {
+    margin-left: 0;
+    padding-left: 0;
   }
 
   .the-day-image img {
