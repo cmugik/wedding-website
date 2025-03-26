@@ -163,7 +163,7 @@ async function submitForm() {
           <div class="section-container">
             <div class="photo-container">
               <figure>
-              <img src="/src/assets/vertical-kalm-rock.jpg" alt="Couple photo" class="section-photo hidden-on-mobile">
+                <img src="/src/assets/vertical-kalm-rock.jpg" alt="Couple photo" class="section-photo hidden-on-mobile">
                 <figcaption> photos by alejandroconnor.com </figcaption>
               </figure>
             </div>
@@ -300,10 +300,10 @@ async function submitForm() {
             </div>
           </div>
           <div class="rsvp-image">
-		<figure>
-            <img src="./assets/vertical-champagne-cropped.jpg">
-	    <figcaption> photos by alejandroconnor.com </figcaption>
-		</figure>
+            <figure>
+              <img src="./assets/vertical-champagne-cropped.jpg">
+              <figcaption> photos by alejandroconnor.com </figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -495,12 +495,12 @@ async function submitForm() {
 
         </div>
 
-              <figure>
-        <div class="the-day-image">
-          <img src="./assets/vertical-cake.jpg">
-        </div>
-                <figcaption> photos by alejandroconnor.com </figcaption>
-              </figure>
+        <figure>
+          <div class="the-day-image">
+            <img src="./assets/vertical-cake.jpg">
+          </div>
+          <figcaption> photos by alejandroconnor.com </figcaption>
+        </figure>
 
       </div>
       <!-- Attire Page -->
@@ -529,10 +529,10 @@ async function submitForm() {
           </div>
 
           <div class="attire-image">
-		  <figure>
-            <img src="/src/assets/vertical-lift1.jpg" class="attire-image">
-	    <figcaption> photos by alejandroconnor.com </figcaption>
-		  </figure>
+            <figure>
+              <img src="/src/assets/vertical-lift1.jpg" class="attire-image">
+              <figcaption> photos by alejandroconnor.com </figcaption>
+            </figure>
           </div>
 
           <div class="attire-sidebar"> </div>
@@ -1100,6 +1100,10 @@ ul li {
 
 /* Responsive design */
 @media (max-width: 768px) {
+
+  .banner {
+    background-image: url('/src/assets/banner-lift-mobile.jpg');
+  }
 
   .landing-page .content-section+.content-section {
     padding-top: 0;
