@@ -309,7 +309,8 @@ async function submitForm() {
 
             <br>
             <div class="location-text">
-              <h2>Location</h2>
+              <h2 class="location-header">Location</h2>
+
               <br>
 
               <p>
@@ -321,8 +322,6 @@ async function submitForm() {
                 (such as sports cars) may not be able to make it to the top, so we recommend using vehicles with higher
                 clearance.
               </p>
-
-              <br>
 
               <p>
                 The entrance to the forest service road is located approximately 12 minutes outside of Princeton, BC, at
@@ -402,7 +401,7 @@ async function submitForm() {
 
               <p>
                 <strong>All Guests:</strong>
-                Please plan to arrive between 3:00 PM and 3:45 PM. Below is a general outline of the day’s events:
+                Please plan to arrive between 3:00 PM and 3:45 PM. Below is a general outline of the day’s events.
               </p>
 
               <ul class="day-list">
@@ -462,7 +461,6 @@ async function submitForm() {
               For the gents: darker tones are your friend. A suit, a blazer with dress pants, or even just a nice shirt
               with
               slacks will do the trick. </p>
-            <br>
             <p> Bonus tip! Once the sun goes down, we’ll be swapping dancing shoes for cozy layers. At 1200m (4000ft),
               the
               evening air is a bit chilly —even in summer. So pack your favorite sweaters, blanket, jacket, warm socks,
@@ -569,6 +567,10 @@ h1 {
 h2,
 h3 {
   font-family: 'ogg-regular';
+}
+
+p {
+  margin-bottom: 2.25rem;
 }
 
 #app {
@@ -930,6 +932,10 @@ h3 {
   justify-content: left;
   align-items: start;
   text-align: start;
+}
+
+.location-header {
+  margin-bottom: 6px;
 }
 
 .accommodations-text {
