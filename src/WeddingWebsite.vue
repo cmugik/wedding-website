@@ -138,6 +138,9 @@ async function submitForm() {
           <li :class="{ active: currentPage === 'attire' }">
             <a href="#" @click.prevent="changePage('attire')">Attire</a>
           </li>
+          <li :class="{ active: currentPage === 'gift' }">
+            <a href="#" @click.prevent="changePage('gift')">Gifts</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -163,7 +166,7 @@ async function submitForm() {
           <div class="section-container">
             <div class="photo-container">
               <figure>
-              <img src="/src/assets/vertical-kalm-rock.jpg" alt="Couple photo" class="section-photo hidden-on-mobile">
+                <img src="/src/assets/vertical-kalm-rock.jpg" alt="Couple photo" class="section-photo hidden-on-mobile">
                 <figcaption> photos by alejandroconnor.com </figcaption>
               </figure>
             </div>
@@ -300,10 +303,10 @@ async function submitForm() {
             </div>
           </div>
           <div class="rsvp-image">
-		<figure>
-            <img src="./assets/vertical-champagne-cropped.jpg">
-	    <figcaption> photos by alejandroconnor.com </figcaption>
-		</figure>
+            <figure>
+              <img src="./assets/vertical-champagne-cropped.jpg">
+              <figcaption> photos by alejandroconnor.com </figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -495,12 +498,12 @@ async function submitForm() {
 
         </div>
 
-              <figure>
-        <div class="the-day-image">
-          <img src="./assets/vertical-cake.jpg">
-        </div>
-                <figcaption> photos by alejandroconnor.com </figcaption>
-              </figure>
+        <figure>
+          <div class="the-day-image">
+            <img src="./assets/vertical-cake.jpg">
+          </div>
+          <figcaption> photos by alejandroconnor.com </figcaption>
+        </figure>
 
       </div>
       <!-- Attire Page -->
@@ -529,20 +532,22 @@ async function submitForm() {
           </div>
 
           <div class="attire-image">
-		  <figure>
-            <img src="/src/assets/vertical-lift1.jpg" class="attire-image">
-	    <figcaption> photos by alejandroconnor.com </figcaption>
-		  </figure>
+            <figure>
+              <img src="/src/assets/vertical-lift1.jpg" class="attire-image">
+              <figcaption> photos by alejandroconnor.com </figcaption>
+            </figure>
           </div>
 
           <div class="attire-sidebar"> </div>
         </div>
         <div class="attire-footbar"> </div>
       </div>
+      <div v-else-if="currentPage === 'gift'" class="page gift-page">
+        <h1> Stay tuned, a gift registry will be provided soon! </h1>
+      </div>
     </main>
   </div>
 </template>
-
 <style>
 /* Potential Palettes
 
@@ -1098,8 +1103,22 @@ ul li {
   margin-top: auto;
 }
 
+/* gift page specific designs */
+.gift-page {
+  align-content: center;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
+
+  banner {
+    width: 100%;
+    margin-left: 0;
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+  }
 
   .landing-page .content-section+.content-section {
     padding-top: 0;
