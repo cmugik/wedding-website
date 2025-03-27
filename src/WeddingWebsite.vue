@@ -138,6 +138,9 @@ async function submitForm() {
           <li :class="{ active: currentPage === 'attire' }">
             <a href="#" @click.prevent="changePage('attire')">Attire</a>
           </li>
+          <li :class="{ active: currentPage === 'gift' }">
+            <a href="#" @click.prevent="changePage('gift')">Gifts</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -539,10 +542,12 @@ async function submitForm() {
         </div>
         <div class="attire-footbar"> </div>
       </div>
+      <div v-else-if="currentPage === 'gift'" class="page gift-page">
+        <h1> Stay tuned, a gift registry will be provided soon! </h1>
+      </div>
     </main>
   </div>
 </template>
-
 <style>
 /* Potential Palettes
 
@@ -1096,6 +1101,11 @@ ul li {
   width: 100%;
   background-color: var(--secondary-color);
   margin-top: auto;
+}
+
+/* gift page specific designs */
+.gift-page {
+  align-content: center;
 }
 
 /* Responsive design */
