@@ -698,7 +698,7 @@ p {
 
 .nav-bar-shadow {
   width: 100%;
-  height: 58px;
+  height: 63px;
   top: 0;
   left: 0;
   position: absolute;
@@ -824,7 +824,6 @@ p {
 
 .attire-page {
   min-height: calc(100vh - 60px);
-  padding-top: 56px;
 }
 
 
@@ -1118,6 +1117,10 @@ ul li {
     background-size: cover;
     height: 100vh;
     overflow: hidden;
+  }
+
+  .nav-bar-shadow {
+    height: 54px;
   }
 
   .landing-page .content-section+.content-section {
