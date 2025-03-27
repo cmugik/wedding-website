@@ -538,7 +538,6 @@ async function submitForm() {
             </figure>
           </div>
 
-          <div class="attire-sidebar"> </div>
         </div>
         <div class="attire-footbar"> </div>
       </div>
@@ -824,6 +823,7 @@ p {
 
 .attire-page {
   min-height: calc(100vh - 60px);
+  padding-top: 56px;
 }
 
 
@@ -1089,12 +1089,6 @@ ul li {
   object-fit: contain;
 }
 
-.attire-sidebar {
-  width: var(--spacing-lg);
-  background-color: var(--secondary-color);
-  z-index: 1003;
-}
-
 .attire-footbar {
   height: var(--spacing-lg);
   width: 100%;
@@ -1120,7 +1114,7 @@ ul li {
   }
 
   .nav-bar-shadow {
-    height: 54px;
+    height: 44px;
   }
 
   .landing-page .content-section+.content-section {
@@ -1243,11 +1237,6 @@ ul li {
     order: 2;
     margin-top: var(--spacing-md);
     padding: var(--spacing-sm);
-  }
-
-  .attire-sidebar {
-    width: 100%;
-    height: var(--spacing-sm);
   }
 
   .attire-text {
