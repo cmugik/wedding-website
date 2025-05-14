@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 
 // State
 
@@ -94,7 +94,6 @@ async function submitForm() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    // Send to Cloudflare Worker
     const response = await fetch('https://rough-sun-8ed1.caleb-kellett.workers.dev/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -116,6 +115,92 @@ async function submitForm() {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send RSVP';
     }
+  }
+}
+
+// Registry state
+const items = ref([]);
+const selectedItems = ref([]);
+const showModal = ref(false);
+const userName = ref('');
+const userEmail = ref('');
+const successMessage = ref('');
+const errorMessage = ref('');
+const isSubmitting = ref(false);
+const isLoading = ref(false);
+const reservationButtonText = computed(() =>
+  selectedItems.value.length <= 1 ? "I'll get this" : "I'll get these"
+);
+
+// Fetch registry items from backend
+async function fetchRegistry() {
+  isLoading.value = true;
+  try {
+    const res = await fetch('https://rough-sun-8ed1.caleb-kellett.workers.dev/registry');
+    if (!res.ok) throw new Error('Failed to fetch registry');
+    const data = await res.json();
+    console.log(data);
+    items.value = data.items || [];
+  } catch (e) {
+    errorMessage.value = 'Could not load registry items.';
+  } finally {
+    isLoading.value = false;
+    console.log(items);
+  }
+}
+
+// Call fetchRegistry when component mounts
+onMounted(fetchRegistry);
+
+// Only show items with at least one open purchaser slot
+const availableItems = computed(() =>
+  items.value.filter(
+    (item) =>
+      (!item.Purchaser1Mail || !item.Purchaser1Name) ||
+      (!item.Purchaser2Mail || !item.Purchaser2Name)
+  )
+);
+
+async function submitReservation() {
+  isSubmitting.value = true;
+  errorMessage.value = '';
+  successMessage.value = '';
+
+  // Prepare payload
+  const selectedItemObjs = items.value
+    .filter((item) => selectedItems.value.includes(item.ItemName))
+    .map((item) => ({
+      ItemName: item.ItemName,
+    }));
+
+  const payload = {
+    items: selectedItemObjs,
+    name: userName.value,
+    email: userEmail.value,
+  };
+
+  try {
+    const res = await fetch('https://rough-sun-8ed1.caleb-kellett.workers.dev/registry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      throw new Error('Failed to reserve items, try again later.');
+    }
+
+    successMessage.value = `Thank you, ${userName.value}! Your selection has been saved.`;
+    showModal.value = false;
+    userName.value = '';
+    userEmail.value = '';
+    selectedItems.value = [];
+    await fetchRegistry(); // Refresh the registry list
+  } catch (e) {
+    errorMessage.value = 'There was a problem saving your selection. Please try again.';
+    successMessage.value = '';
+  } finally {
+    isSubmitting.value = false;
   }
 }
 </script>
@@ -542,66 +627,89 @@ async function submitForm() {
         <div class="attire-footbar"> </div>
       </div>
       <div v-else-if="currentPage === 'gift'" class="page gift-page">
-        <h1> Stay tuned, a gift registry will be provided soon! </h1>
+        <div>
+            <div class="registry-blurb">
+              <p>
+              The best present you can give us is your presence on our special day.
+              If you do choose to bring a gift, please see the registry below for ideas.
+              </p>
+              <p>
+              If you'd prefer to donate to our honeymoon or new home fund, our email is jazandmack@gmail.com
+              </p>
+            </div>
+            <h2>Wedding Registry</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Select</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr v-if="availableItems.length === 0">
+                      <td colspan="2">No items available</td>
+                    </tr>
+                    <tr v-for="item in availableItems" :key="item.ItemName">
+                      <td>
+                        <a :href="item.ItemLink" target="_blank">{{ item.ItemName }}</a>
+                      </td>
+                      <td>
+                        <input
+                          type="checkbox"
+                          :value="item.ItemName"
+                          v-model="selectedItems"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+              </table>
+            <button
+              style="margin-top: 1em"
+              :disabled="selectedItems.length === 0"
+              @click="showModal = true"
+            >
+            {{ reservationButtonText }}
+            </button>
+
+            <!-- Modal -->
+            <div
+              v-if="showModal"
+              class="modal-overlay"
+              @click.self="showModal = false"
+            >
+              <div class="modal-content">
+                <h3>Let us know who you are</h3>
+                <label>
+                  Name:
+                  <input v-model="userName" type="text" placeholder="Your name" />
+                </label>
+                <br />
+                <label>
+                  Email:
+                  <input v-model="userEmail" type="email" placeholder="Your email" />
+                </label>
+                <br />
+                <button
+                  style="margin-top: 1em"
+                  :disabled="!userName || !userEmail || isSubmitting"
+                  @click="submitReservation"
+                >
+                  Submit
+                </button>
+                <button style="margin-left: 1em" @click="showModal = false">
+                  Cancel
+                </button>
+              </div>
+            </div>
+            <div v-if="successMessage" class="success-message">
+              {{ successMessage }}
+            </div>
+          </div>
       </div>
     </main>
   </div>
 </template>
 <style>
-/* Potential Palettes
-
-#7D9D7F (Sage Green)
-#F5F1E6 (Ivory/Off-White)
-#E0CDAD (Beige)
-#717171 (Medium Gray)
-#373737 (Charcoal Gray)
-
-#7D9D7F (Sage Green)
-#800020 (Burgundy)
-#F0EDE5 (Light Neutral)
-#4A4A4A (Dark Gray)
-
-#7D9D7F (Sage Green)
-#18304A (Navy Blue)
-#EEEEE4 (Off-White)
-#BFA78B (Light Taupe)
-
-#7D9D7F (Sage Green)
-#D4A82C (Mustard Yellow)
-#F9F5EB (Cream)
-#54483E (Dark Brown)
-
-#7D9D7F (Sage Green)
-#C39E9E (Dusty Rose)
-#F3F1EE (Off-White)
-#B6B6B4 (Light Gray)
-
-#7D9D7F (Sage Green)
-#B28FB0 (Mauve)
-#EDE8F0 (Pale Lavender White)
-#CEBEB0 (Light Taupe)
-
-#7D9D7F (Sage Green)
-#B3C7D6 (Pale Blue)
-#F5F7F8 (Blue-White)
-#D1CAC1 (Light Greige)
-
-#7D9D7F (Sage Green)
-#C56434 (Terracotta)
-#EBE3D7 (Cream)
-#6D5D4B (Brown)
-
-#7D9D7F (Medium Sage Green)
-#2A4D3E (Dark Forest Green)
-#F0EDE4 (Off-White)
-#A39079 (Taupe)
-
-#7D9D7F (Sage Green)
-#9F7A60 (Caramel)
-#5E4B3E (Chestnut)
-#F2EBE3 (Cream)
-*/
-
 :root {
   --primary-color: #737373;
   --secondary-color: #a9bfb3;
@@ -1099,6 +1207,46 @@ ul li {
 /* gift page specific designs */
 .gift-page {
   align-content: center;
+}
+
+.registry-blurb {
+  margin-top: 2.25rem;
+}
+
+.success-message {
+  margin-top: var(--spacing-sm);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  text-align: left;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  min-width: 300px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive design */
