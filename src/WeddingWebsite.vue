@@ -627,84 +627,82 @@ async function submitReservation() {
         <div class="attire-footbar"> </div>
       </div>
       <div v-else-if="currentPage === 'gift'" class="page gift-page">
-        <div>
-            <div class="registry-blurb">
-              <p>
-              The best present you can give us is your presence on our special day.
-              If you do choose to bring a gift, please see the registry below for ideas.
-              </p>
-              <p>
-              If you'd prefer to donate to our honeymoon or new home fund, our email is jazandmack@gmail.com
-              </p>
-            </div>
-            <h2>Wedding Registry</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Select</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr v-if="availableItems.length === 0">
-                      <td colspan="2">No items available</td>
-                    </tr>
-                    <tr v-for="item in availableItems" :key="item.ItemName">
-                      <td>
-                        <a :href="item.ItemLink" target="_blank">{{ item.ItemName }}</a>
-                      </td>
-                      <td>
-                        <input
-                          type="checkbox"
-                          :value="item.ItemName"
-                          v-model="selectedItems"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-              </table>
+        <div class="registry-blurb">
+          <h2 class="registry-header">Wedding Registry</h2>
+          <p>
+          The best present you can give us is your presence on our special day.
+          If you do choose to bring a gift, please see the registry below for ideas.
+          </p>
+          <p>
+          If you'd prefer to donate to our honeymoon or new home fund, our email is jazandmack@gmail.com
+          </p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Select</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr v-if="availableItems.length === 0">
+                <td colspan="2">No items available</td>
+              </tr>
+              <tr v-for="item in availableItems" :key="item.ItemName">
+                <td>
+                  <a :href="item.ItemLink" target="_blank">{{ item.ItemName }}</a>
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    :value="item.ItemName"
+                    v-model="selectedItems"
+                  />
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        <button
+          style="margin-top: 1em"
+          :disabled="selectedItems.length === 0"
+          @click="showModal = true"
+        >
+        {{ reservationButtonText }}
+        </button>
+
+        <!-- Modal -->
+        <div
+          v-if="showModal"
+          class="modal-overlay"
+          @click.self="showModal = false"
+        >
+          <div class="modal-content">
+            <h3>Let us know who you are</h3>
+            <label>
+              Name:
+              <input v-model="userName" type="text" placeholder="Your name" />
+            </label>
+            <br />
+            <label>
+              Email:
+              <input v-model="userEmail" type="email" placeholder="Your email" />
+            </label>
+            <br />
             <button
               style="margin-top: 1em"
-              :disabled="selectedItems.length === 0"
-              @click="showModal = true"
+              :disabled="!userName || !userEmail || isSubmitting"
+              @click="submitReservation"
             >
-            {{ reservationButtonText }}
+              Submit
             </button>
-
-            <!-- Modal -->
-            <div
-              v-if="showModal"
-              class="modal-overlay"
-              @click.self="showModal = false"
-            >
-              <div class="modal-content">
-                <h3>Let us know who you are</h3>
-                <label>
-                  Name:
-                  <input v-model="userName" type="text" placeholder="Your name" />
-                </label>
-                <br />
-                <label>
-                  Email:
-                  <input v-model="userEmail" type="email" placeholder="Your email" />
-                </label>
-                <br />
-                <button
-                  style="margin-top: 1em"
-                  :disabled="!userName || !userEmail || isSubmitting"
-                  @click="submitReservation"
-                >
-                  Submit
-                </button>
-                <button style="margin-left: 1em" @click="showModal = false">
-                  Cancel
-                </button>
-              </div>
-            </div>
-            <div v-if="successMessage" class="success-message">
-              {{ successMessage }}
-            </div>
+            <button style="margin-left: 1em" @click="showModal = false">
+              Cancel
+            </button>
           </div>
+        </div>
+        <div v-if="successMessage" class="success-message">
+          {{ successMessage }}
+        </div>
       </div>
     </main>
   </div>
@@ -1210,7 +1208,11 @@ ul li {
 }
 
 .registry-blurb {
-  margin-top: 2.25rem;
+  margin-top: var(--spacing-md);
+}
+
+.registry-header {
+  margin-bottom: var(--spacing-md);
 }
 
 .success-message {
