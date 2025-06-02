@@ -7,8 +7,8 @@ const currentPage = ref('welcome');
 const weddingData = ref({
   name1: 'MACK',
   name2: 'JAZMYN',
-  date: 'August 17, 2025',
-  location: 'Princeton, BC'
+  date: 'TBD, Previous Venue Shut Down',
+  location: ''
 });
 
 const formData = ref({
@@ -401,184 +401,9 @@ async function submitReservation() {
       <div v-else-if="currentPage === 'the-day'" class="page the-day-page">
         <div class="the-day-content">
           <div class="the-day-text">
-
             <br>
-            <div class="location-text">
-              <h2 class="location-header">Location</h2>
-
-              <br>
-
-              <p>
-                Our wedding will be held at
-                <a href="https://jurasunflowersummit.ca/">Jura Sunflower Summit</a>,
-                a stunning 200-acre mountaintop venue surrounded by untouched
-                crown land forest as far as the eye can see.
-              </p>
-
-              <p>
-                The location is accessible via a well-maintained forest service road. However, low-clearance vehicles
-                (such as sports cars) may not be able to make it to the top, so we recommend using vehicles with higher
-                clearance.
-              </p>
-
-              <p>
-                The entrance to the forest service road is located approximately 12 minutes outside of Princeton, BC, at
-                3362 Hembrie Mountain Road — using a GPS/maps app is recommended.
-              </p>
-
-              <p>
-                Once on the forest service road, you will see signs guiding you all the way up to the venue.
-              </p>
-
-              <p>
-                If you require assistance with transportation or accessing the site, please let us know when you RSVP.
-              </p>
-
-              <p>
-                We will be sharing more detailed access information at the end of May.
-              </p>
-
-              <p>
-                In the meantime, if you have any questions, feel free to message the bride at
-                <a href="tel:604-902-0397">604-902-0397</a>.
-              </p>
-
-            </div>
-
-            <div class="accommodations-text">
-
-              <br>
-              <h2>Accommodations</h2>
-              <br>
-
-              <p>
-                Our venue offers on-site camping for anyone who would like to stay close to the celebration!
-              </p>
-
-              <p>
-                For our BC guests, please bring your usual camping gear. Trailers, campers, rooftop tents, and
-                traditional tents
-                are all welcome.
-              </p>
-
-              <p>
-                To reserve a site ahead of time, please follow the links provided below.
-              </p>
-
-              <p>
-                If you're flying in and would like to camp but won't be able to bring your gear, just let us know when
-                you RSVP or contact the bride directly at
-                <a href="tel:604-902-0397">604-902-0397</a>.
-              </p>
-
-              <p>
-                We also have a few alternative accommodations available, but they are limited, so please reach out as
-                early as possible if you would like to secure one.
-              </p>
-
-              <br>
-              <h3 class="day-list-header"> Suggested Items to Bring:</h3>
-
-              <ul class="day-list">
-                <li>Tent, camper, or rooftop tent</li>
-                <li>Sleeping pad</li>
-                <li>Sleeping bags or blankets</li>
-                <li>Pillows</li>
-                <li>Snacks and breakfast for the next morning</li>
-                <li>Warm layers for the evening (the site sits at 1,200m / 4,000ft and can get chilly at night)</li>
-                <li>Propane fires will be provided, but feel free to bring your own if you'd like</li>
-              </ul>
-              <br>
-
-              <p>
-                If camping isn't your style but you'd still like to stay nearby, there is a Sandman Inn located in
-                Princeton municipality near by.
-              </p>
-
-            </div>
-
+            <h2> Unfortunately, our venue shut down without warning. We will be delaying the wedding to an as of yet unknown date.</h2>
             <br>
-            <div class="timeline-text">
-              <br>
-              <h2>Timeline</h2>
-              <br>
-
-              <p>
-                <strong>Wedding Party:</strong> If you are part of the wedding party, you will receive your personalized
-                day-of timeline directly from
-                the Bride & Groom.
-              </p>
-
-              <p>
-                <strong>All Guests:</strong> Please plan to arrive between 3:00 PM and 3:45 PM. Below is a general
-                outline of the day's events:
-              </p>
-
-              <ul class="day-list">
-                <li>
-                  <div class="timeline-time"><strong>3:00 PM – 3:45 PM</strong></div>
-                  <div class="timeline-event">Welcome drinks & lawn games</div>
-                </li>
-                <li>
-                  <div class="timeline-time"><strong>4:00 PM – 5:00 PM</strong></div>
-                  <div class="timeline-event">Ceremony</div>
-                </li>
-                <li>
-                  <div class="timeline-time"><strong>5:00 PM – 5:45 PM</strong></div>
-                  <div class="timeline-event">Champagne toast & a short break</div>
-                </li>
-                <li>
-                  <div class="timeline-time"><strong>5:45 PM – 7:00 PM</strong></div>
-                  <div class="timeline-event">Dinner</div>
-                </li>
-                <li>
-                  <div class="timeline-time"><strong>7:10 PM</strong></div>
-                  <div class="timeline-event">First dance</div>
-                </li>
-                <li>
-                  <div class="timeline-time"><strong>7:20 PM</strong></div>
-                  <div class="timeline-event">Father-daughter dance</div>
-                </li>
-                <li>
-                  <div class="timeline-time"><strong>7:30 PM</strong></div>
-                  <div class="timeline-event">Cake cutting</div>
-                </li>
-                <li>
-                  <div class="timeline-time"><strong>7:45 PM – late</strong></div>
-                  <div class="timeline-event">Bonfire, s'mores & dancing under the stars</div>
-                </li>
-              </ul>
-
-              <br>
-
-              <p>
-                We can't wait to celebrate with you!!!
-              </p>
-            </div>
-
-            <br>
-            <div class="food-drink-text">
-              <br>
-              <h2>Food and Drinks</h2>
-              <br>
-
-              <p>
-                We will be serving a BBQ-style buffet with two meats and a variety of hearty side dishes. Portions will
-                be generous, so come hungry!
-              </p>
-
-              <p>
-                Following dinner, we'll have wedding cake and a s'mores station to satisfy your sweet tooth.
-              </p>
-
-              <p>
-                We'll also be doing a welcome drink upon arrival for our guests who arrive prior to ceremony start time,
-                and a champagne toast for all guests following the ceremony. Beyond that, please note that alcohol will
-                be limited to a couple of drinks per person. If you'd like to enjoy more, feel free to bring your
-                favorite beverages to enjoy throughout the evening.
-              </p>
-            </div>
-
           </div>
 
         </div>
@@ -1080,7 +905,9 @@ p {
 
 .the-day-content {
   display: flex;
+  justify-content: center;
   flex-direction: row;
+  justify-content: center;
   gap: var(--spacing-md);
 }
 
@@ -1088,6 +915,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  text-align: center;
 }
 
 .the-day-text p,
